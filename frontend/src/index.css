@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+	height: 100%;
+}
+
+/* Enhanced background gradient theme */
+body {
+	background: 
+		radial-gradient(1200px 800px at -15% -15%, #e9d5ff88, transparent 70%),
+		radial-gradient(1000px 600px at 115% 15%, #bfdbfe88, transparent 70%),
+		radial-gradient(800px 500px at 50% 130%, #bbf7d088, transparent 70%),
+		radial-gradient(600px 400px at 20% 80%, #fde68a88, transparent 70%),
+		linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+	animation: gradientShift 20s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+	0%, 100% { 
+		background-position: 0% 0%, 100% 0%, 50% 100%, 20% 80%, 0% 0%;
+	}
+	50% { 
+		background-position: 20% 20%, 80% 20%, 30% 120%, 40% 60%, 0% 0%;
+	}
+}
+
+/* Enhanced glass card style */
+.glass {
+	@apply bg-white/80 backdrop-blur-xl shadow-xl border border-white/50 rounded-2xl;
+	box-shadow: 
+		0 8px 32px rgba(0, 0, 0, 0.1),
+		0 0 0 1px rgba(255, 255, 255, 0.2),
+		inset 0 1px 0 rgba(255, 255, 255, 0.3);
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass:hover {
+	@apply shadow-2xl;
+	transform: translateY(-2px);
+}
+
+/* Custom animations */
+@keyframes slide-in {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes scale-in {
+	from {
+		opacity: 0;
+		transform: scale(0.95);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.animate-slide-in {
+	animation: slide-in 0.3s ease-out;
+}
+
+.animate-fade-in {
+	animation: fade-in 0.5s ease-out;
+}
+
+.animate-scale-in {
+	animation: scale-in 0.2s ease-out;
+}
+
+/* Enhanced button styles */
+.btn-primary {
+	@apply inline-flex items-center px-6 py-3 rounded-xl text-white font-semibold shadow-lg transition-all duration-200 transform hover:scale-105 hover:shadow-xl;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.btn-primary:hover {
+	background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+.btn-secondary {
+	@apply inline-flex items-center px-6 py-3 rounded-xl text-gray-700 font-semibold bg-gray-100 hover:bg-gray-200 transition-all duration-200 transform hover:scale-105;
+}
+
+.btn-danger {
+	@apply inline-flex items-center px-4 py-2 rounded-lg text-white font-medium shadow-lg transition-all duration-200 transform hover:scale-105;
+	background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+}
+
+.btn-danger:hover {
+	background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+}
+
+/* Enhanced input styles */
+.input {
+	@apply w-full px-4 py-3 rounded-xl border border-gray-200 bg-white/90 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-200 placeholder-gray-400;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.input:focus {
+	box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+}
+
+.textarea {
+	@apply w-full px-4 py-3 rounded-xl border border-gray-200 bg-white/90 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-200 placeholder-gray-400 resize-none;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.textarea:focus {
+	box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+}
+
+/* Card title */
+.card-title {
+	@apply text-2xl font-bold text-gray-900;
+}
+
+/* Subtle text */
+.muted {
+	@apply text-sm text-gray-600;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+	width: 6px;
+}
+
+::-webkit-scrollbar-track {
+	background: rgba(0, 0, 0, 0.1);
+	border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+/* Loading animation */
+@keyframes shimmer {
+	0% {
+		background-position: -200px 0;
+	}
+	100% {
+		background-position: calc(200px + 100%) 0;
+	}
+}
+
+.shimmer {
+	background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+	background-size: 200px 100%;
+	animation: shimmer 1.5s infinite;
+}
+
+/* Focus styles */
+*:focus {
+	outline: none;
+}
+
+/* Selection styles */
+::selection {
+	background: rgba(99, 102, 241, 0.2);
+	color: #1f2937;
+}
